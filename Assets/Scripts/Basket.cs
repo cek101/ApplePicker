@@ -5,6 +5,7 @@ using UnityEngine.UI; // This line enables use of uGUI features
 
 public class Basket : MonoBehaviour     {
     [Header("Set Dynamically")]
+    public Text     scoreGT;
     // Use this for initialization
     void Start () {
         // find a reference to the ScoreCounter GameObject
@@ -35,7 +36,7 @@ public class Basket : MonoBehaviour     {
 
     void OnCollisionEnter(Collision coll)       { //a catching apples page 483 check code in book?
       //find out what hit this basket
-        GameObject collideWith = coll.gameObject; //b
+        GameObject collidedWith = coll.gameObject; //b
         if (collidedWith.tag == "Apple")  {  //c
             Destroy(collidedWith);
 
@@ -47,11 +48,12 @@ public class Basket : MonoBehaviour     {
             scoreGT.text = score.ToString();
 
             // convert the score back to a string and display it
-            scoreGT.text = HighScore.ToString();
+            //scoreGT.text = HighScore.ToString();
 
             // track the ghigh score
             if (score > HighScore.score) { }
             HighScore.score = score;
+
         }
 
     }
